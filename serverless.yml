@@ -1,0 +1,15 @@
+service: aws-node
+frameworkversion: '3'
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: helloworld/hello.handler
+    events:
+      - http:
+          path: hello/{ID}
+          method: GET
+          cors: true
+      
